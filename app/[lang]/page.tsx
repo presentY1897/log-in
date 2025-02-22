@@ -1,14 +1,11 @@
+import { useTranslations } from "next-intl";
 
 
-export default async function Page({
-	params,
-}: {
-	params: Promise<{ lang: string }>
-}) {
-	const { lang } = await params;
+export default function Page() {
+	const t = useTranslations('Common')
 	return (
 		<div>
-			<h1>{lang}</h1>
+			<h1>{t('Hello')}</h1>
 		</div>
 	);
 }
