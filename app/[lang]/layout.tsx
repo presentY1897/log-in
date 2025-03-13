@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import "../globals.css";
+import "@/app/globals.css";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
