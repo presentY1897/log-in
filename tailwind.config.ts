@@ -18,5 +18,8 @@ export default {
 			},
 		},
 	},
+	safelist: [
+		`!bg-background`,
+	],
 	plugins: [],
 } satisfies Config;
