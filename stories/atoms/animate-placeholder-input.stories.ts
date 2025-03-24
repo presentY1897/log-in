@@ -1,4 +1,4 @@
-import AnimatePlaceholderInput from "@/app/components/atom/animate-placeholder-input";
+import AnimatePlaceholderInput from "@/app/components/atoms/animate-placeholder-input";
 import { Meta, StoryObj } from "@storybook/react";
 
 
