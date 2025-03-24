@@ -1,4 +1,4 @@
-import LabelInput from "@/app/components/atoms/label-input";
+import LabelInput from "@/components/atoms/label-input";
 import { Meta, StoryObj } from "@storybook/react";
 
 
