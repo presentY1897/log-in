@@ -41,9 +41,36 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const checkbox = canvas.getByRole("checkbox");
+    expect(checkbox).not.toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
+  },
+};
+
+export const Checked: Story = {
+  args: {
+    label: "Check me",
+    checked: true,
+    onChange: (e) => (Checked.args!.checked = e.target.checked),
+  },
+  render: function Render(args) {
+    return CheckboxLabelRender(args);
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole("checkbox");
+    expect(checkbox).toBeChecked();
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+    await userEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
+
+    const textDiv = canvas.getByText("Check me");
+    await userEvent.click(textDiv);
+    expect(checkbox).not.toBeChecked();
+    await userEvent.click(textDiv);
+    expect(checkbox).toBeChecked();
   },
 };
