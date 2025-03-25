@@ -15,22 +15,22 @@ export default function AnimatePlaceholderInput({
 }: AnimatePlaceholderInputProps) {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-secondary focus-within:ring-secondary">
+      <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
         <input
-          className="peer rounded-md bg-background text-primary focus:outline-none"
+          className="peer rounded-md text-foreground bg-background focus:outline-none"
           type={type}
           value={inputValue}
+          placeholder=""
           onChange={(e) => inputValueChange(e.target.value)}
         />
-        {inputValue.length > 0 ? (
-          <div className="p-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-primary -translate-x-1 -translate-y-3/4">
-            {placeholder}
-          </div>
-        ) : (
-          <div className="p-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-primary peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-3/4">
-            {placeholder}
-          </div>
-        )}
+        <div
+          className="px-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-foreground 
+					-translate-x-1 -translate-y-full
+					peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:-translate-y-0 
+					peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-full"
+        >
+          {placeholder}
+        </div>
       </div>
     </div>
   );
