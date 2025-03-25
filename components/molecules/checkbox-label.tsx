@@ -15,7 +15,7 @@ export default function CheckboxLabel({
   return (
     <label className="flex items-center gap-2">
       <Checkbox checked={checked} onChange={onChange} />
-      <div>{label}</div>
+      <div className="select-none">{label}</div>
     </label>
   );
 }
