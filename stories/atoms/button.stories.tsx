@@ -23,6 +23,13 @@ export const Default: Story = {
   },
 };
 
+export const DarkTheme: Story = {
+  args: Default.args,
+  globals: {
+    theme: "dark",
+  },
+};
+
 export const ClickCallback: Story = {
   args: Default.args,
   render: function Render(args) {
@@ -39,6 +46,8 @@ export const ClickCallback: Story = {
     expect(button).toHaveTextContent("Click 1 times");
     await userEvent.click(button);
     expect(button).toHaveTextContent("Click 2 times");
+
+    await userEvent.click(document.body);
   },
 };
 
@@ -89,5 +98,7 @@ export const PressedCallback: Story = {
       },
     ]);
     expect(button).toHaveTextContent("Not pressed");
+
+    await userEvent.click(document.body);
   },
 };

@@ -46,6 +46,15 @@ export const Default: Story = {
     expect(checkbox).toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
+
+    await userEvent.click(document.body);
+  },
+};
+
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
   },
 };
 
@@ -72,5 +81,7 @@ export const Checked: Story = {
     expect(checkbox).not.toBeChecked();
     await userEvent.click(textDiv);
     expect(checkbox).toBeChecked();
+
+    await userEvent.click(document.body);
   },
 };
