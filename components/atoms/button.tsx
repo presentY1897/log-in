@@ -12,7 +12,7 @@ interface ButtonProps {
 export default function Button(props: ButtonProps) {
   return (
     <button
-      className="bg-primary text-background rounded-lg p-2 hover:bg-tertiary hover:text-foreground"
+      className="bg-foreground text-background rounded-lg border-2 border-foreground p-2 hover:bg-background hover:text-foreground hover:border-foreground"
       style={{ width: props.width, height: props.height }}
       onClick={props.onClick}
       onMouseDown={props.onMouseDown}
