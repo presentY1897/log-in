@@ -10,7 +10,7 @@ const preview: Preview = {
 				dark: 'dark',
 			},
 			defaultTheme: 'light',
-		})
+		}),
 	],
 	parameters: {
 		docs: {
