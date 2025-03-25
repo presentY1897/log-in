@@ -2,30 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
-	--white: #ffffff;
-	--black: #202020;
-	--background: var(--white);
-	--foreground: var(--black);
+  --white: #ffffff;
+  --black: #202020;
+  --background: var(--white);
+  --foreground: var(--black);
 
-	--color-primary: oklch(0.268 0.007 34.298);
-	--color-secondary: oklch(0.444 0.011 73.639);
-	--color-tertiary: oklch(0.967 0.003 264.542);
+  --color-primary: oklch(0.268 0.007 34.298);
+  --color-secondary: oklch(0.444 0.011 73.639);
+  --color-tertiary: oklch(0.967 0.003 264.542);
 }
 
 .dark {
-	--background: var(--black);
-	--foreground: var(--white);
+  --background: var(--black);
+  --foreground: var(--white);
 
-	--color-primary: oklch(0.985 0.001 106.423);
-	--color-secondary: oklch(0.923 0.003 48.717);
-	--color-tertiary: oklch(0.373 0.034 259.733);
+  --color-primary: oklch(0.985 0.001 106.423);
+  --color-secondary: oklch(0.923 0.003 48.717);
+  --color-tertiary: oklch(0.373 0.034 259.733);
 }
 
 body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
