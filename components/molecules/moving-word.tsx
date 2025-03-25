@@ -42,7 +42,7 @@ export default function MovingWord({
 
   return (
     <div
-      className="relative"
+      className="relative border-2 border-foreground"
       style={{
         width: `${width}px`,
         height: `${height}px`,
