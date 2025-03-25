@@ -6,5 +6,12 @@ interface CheckboxProps {
 }
 
 export default function Checkbox({ checked = false, onChange }: CheckboxProps) {
-  return <input type="checkbox" checked={checked} onChange={onChange} />;
+  return (
+    <input
+      className="size-5 accent-primary hover:accent-secondary"
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+    />
+  );
 }
