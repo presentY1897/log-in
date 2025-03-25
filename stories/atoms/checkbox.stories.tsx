@@ -52,6 +52,8 @@ export const Default: Story = {
     expect(checkbox).toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
+
+    await userEvent.click(document.body);
   },
 };
 
@@ -78,5 +80,7 @@ export const Checked: Story = {
     expect(checkbox).not.toBeChecked();
     await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
+
+    await userEvent.click(document.body);
   },
 };
