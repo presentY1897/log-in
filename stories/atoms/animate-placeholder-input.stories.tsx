@@ -4,35 +4,48 @@ import { useEffect } from "react";
 import { useState } from "storybook/internal/preview-api";
 
 const meta = {
-	title: "Atoms/AnimatePlaceholderInput",
-	component: AnimatePlaceholderInput,
-	parameters: {
-		layout: "centered",
-	},
-	tags: ["autodocs"],
+  title: "Atoms/AnimatePlaceholderInput",
+  component: AnimatePlaceholderInput,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
 } satisfies Meta<typeof AnimatePlaceholderInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		type: "text",
-		placeholder: "Placeholder",
-		inputValue: "",
-		inputValueChange: (value: string) => {
-			Default.args!.inputValue = value
-		},
-	},
-	render: function Render(args) {
-		const [inputValue, setInputValue] = useState(args.inputValue);
-		function inputValueChange(value: string) {
-			setInputValue(value);
-		}
-		useEffect(() => {
-			setInputValue(args.inputValue);
-		}, [args.inputValue]);
+  args: {
+    type: "text",
+    placeholder: "Placeholder",
+    inputValue: "",
+    inputValueChange: (value: string) => {
+      Default.args!.inputValue = value;
+    },
+  },
+  render: function Render(args) {
+    const [inputValue, setInputValue] = useState(args.inputValue);
+    function inputValueChange(value: string) {
+      setInputValue(value);
+    }
+    useEffect(() => {
+      setInputValue(args.inputValue);
+    }, [args.inputValue]);
 
-		return <AnimatePlaceholderInput {...args} inputValue={inputValue} inputValueChange={inputValueChange} />;
-	},
+    return (
+      <AnimatePlaceholderInput
+        {...args}
+        inputValue={inputValue}
+        inputValueChange={inputValueChange}
+      />
+    );
+  },
+};
+
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
+  },
 };

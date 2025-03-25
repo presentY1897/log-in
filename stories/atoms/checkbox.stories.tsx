@@ -55,6 +55,13 @@ export const Default: Story = {
   },
 };
 
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
+  },
+};
+
 export const Checked: Story = {
   args: {
     checked: true,

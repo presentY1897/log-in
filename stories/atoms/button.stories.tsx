@@ -23,6 +23,13 @@ export const Default: Story = {
   },
 };
 
+export const DarkTheme: Story = {
+  args: Default.args,
+  globals: {
+    theme: "dark",
+  },
+};
+
 export const ClickCallback: Story = {
   args: Default.args,
   render: function Render(args) {

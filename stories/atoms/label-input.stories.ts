@@ -21,3 +21,10 @@ export const Default: Story = {
 		placeholder: 'Placeholder',
 	},
 };
+
+export const DarkTheme: Story = {
+	args: Default.args,
+	globals: {
+		theme: 'dark',
+	},
+};
