@@ -8,7 +8,7 @@ export interface CheckboxProps {
 export default function Checkbox({ checked = false, onChange }: CheckboxProps) {
   return (
     <input
-      className="size-5 accent-primary hover:accent-secondary"
+      className="size-5 accent-foreground"
       type="checkbox"
       checked={checked}
       onChange={onChange}
