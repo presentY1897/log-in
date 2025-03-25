@@ -1,7 +1,7 @@
 import React from "react";
 import Checkbox from "../atoms/checkbox";
 
-interface CheckboxLabelProps {
+export interface CheckboxLabelProps {
   label: string;
   checked: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
