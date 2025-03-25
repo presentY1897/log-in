@@ -20,17 +20,17 @@ export default function AnimatePlaceholderInput({
           className="peer rounded-md text-foreground bg-background focus:outline-none"
           type={type}
           value={inputValue}
+          placeholder=""
           onChange={(e) => inputValueChange(e.target.value)}
         />
-        {inputValue.length > 0 ? (
-          <div className="px-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-foreground -translate-x-1 -translate-y-full">
-            {placeholder}
-          </div>
-        ) : (
-          <div className="px-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-foreground peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-full">
-            {placeholder}
-          </div>
-        )}
+        <div
+          className="px-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-foreground 
+					-translate-x-1 -translate-y-full
+					peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:-translate-y-0 
+					peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-full"
+        >
+          {placeholder}
+        </div>
       </div>
     </div>
   );
