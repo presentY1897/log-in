@@ -9,9 +9,11 @@ interface MovingWordProps {
   height: number;
 }
 
+const fontSize = 10;
+
 const getRandomPosition = (width: number, height: number) => ({
-  x: Math.random() * width,
-  y: Math.random() * height,
+  x: Math.random() * (width - fontSize),
+  y: Math.random() * (height - fontSize),
 });
 
 export default function MovingWord({
