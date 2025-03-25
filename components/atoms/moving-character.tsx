@@ -48,7 +48,7 @@ export default function MovingCharacter({
 
   return (
     <div
-      className="absolute flex items-center justify-center"
+      className="absolute flex items-center justify-center text-foreground"
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
         transition: `transform ${moveDuration}s linear`,

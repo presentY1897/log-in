@@ -32,3 +32,10 @@ export const Default: Story = {
     ),
   ],
 };
+
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
+  },
+};
