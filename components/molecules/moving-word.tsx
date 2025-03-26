@@ -3,6 +3,7 @@ import MovingCharacter from "../atoms/moving-character";
 
 interface MovingWordProps {
   word: string;
+  initialPositions?: { x: number; y: number }[];
   movementSpeed: number;
   rotationSpeed: number;
   width: number;
@@ -18,6 +19,7 @@ const getRandomPosition = (width: number, height: number) => ({
 
 export default function MovingWord({
   word,
+  initialPositions = [],
   movementSpeed = 10,
   rotationSpeed = 10,
   width = 100,
@@ -29,7 +31,9 @@ export default function MovingWord({
       (v, i) => ({
         id: i,
         value: v,
-        ...getRandomPosition(width, height),
+        ...(initialPositions.length > i
+          ? initialPositions[i]
+          : getRandomPosition(width, height)),
       })
     );
   const [chars, setChars] = useState<

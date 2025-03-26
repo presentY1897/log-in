@@ -5,6 +5,7 @@ import Button from "../atoms/button";
 
 interface CaptchaFindWord {
   word: string;
+  initialPositions?: { x: number; y: number }[];
   difficulty: number;
   size: {
     width: number;
@@ -14,6 +15,7 @@ interface CaptchaFindWord {
 
 export default function CaptchaFindWord({
   word,
+  initialPositions = [],
   difficulty = 1,
   size,
 }: CaptchaFindWord) {
@@ -31,6 +33,7 @@ export default function CaptchaFindWord({
     <div className="flex flex-col space-y-4 gap-2">
       <MovingWord
         word={word}
+        initialPositions={initialPositions}
         movementSpeed={10 * difficulty}
         rotationSpeed={5 * difficulty}
         width={size.width}

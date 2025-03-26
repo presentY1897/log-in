@@ -24,7 +24,7 @@ export default function MovingCharacter({
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-
+    if (movementSpeed == 0) return;
     const move = () => {
       const nextPosition = getNextPosition();
       const prev = positionRef.current;
@@ -55,7 +55,7 @@ export default function MovingCharacter({
       }}
     >
       <div
-        className="animate-spin"
+        className={rotationSpeed != 0 ? "animate-spin" : ""}
         style={{
           animation: `spin ${360 / rotationSpeed}s linear infinite`,
         }}
