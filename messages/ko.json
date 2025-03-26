@@ -2,5 +2,14 @@
 	"Common": {
 		"Hello": "안녕하세요",
 		"Welcome": "환영합니다"
+	},
+	"LogIn": {
+		"Title": "로그인",
+		"Username": "사용자 이름",
+		"Password": "비밀번호",
+		"Submit": "제출",
+		"Next": "다음",
+		"ForgotPassword": "비밀번호를 잊으셨나요?",
+		"CreateAccount": "계정 만들기"
 	}
 }
