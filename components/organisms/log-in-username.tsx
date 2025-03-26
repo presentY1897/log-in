@@ -30,7 +30,7 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         />
       </div>
       <div className="grow mb-5">
-        <Link href="/">{translate("ForgotPassword")}</Link>
+        <Link href="/">{translate("ForgotUsername")}</Link>
       </div>
       <div className="grow grid grid-flow-col justify-between items-center">
         <Link href="/">{translate("CreateAccount")}</Link>
