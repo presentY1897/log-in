@@ -30,7 +30,7 @@ export default function LogInPassword({ username }: LogInPasswordProps) {
           />
         </div>
         <div className="grow mb-5">
-          <Link href="/">Are you forgot password?</Link>
+          <Link href="/">{translate("ForgotPassword")}</Link>
         </div>
       </div>
       <div className="grow place-self-end">
