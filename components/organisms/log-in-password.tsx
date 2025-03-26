@@ -1,6 +1,7 @@
 import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
+import Link from "next/link";
 
 interface LogInPasswordProps {
   username: string;
@@ -26,7 +27,7 @@ export default function LogInPassword({ username }: LogInPasswordProps) {
           />
         </div>
         <div className="grow mb-5">
-          <a href="/">Are you forgot password?</a>
+          <Link href="/">Are you forgot password?</Link>
         </div>
       </div>
       <div className="grow place-self-end">
