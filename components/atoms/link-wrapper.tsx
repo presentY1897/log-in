@@ -8,7 +8,7 @@ interface LinkWrapperProps {
 
 export default function LinkWrapper({ href, children }: LinkWrapperProps) {
   return (
-    <Link className="text-sm text-blue-500" href={href}>
+    <Link className="text-sm text-link" href={href}>
       {children}
     </Link>
   );
