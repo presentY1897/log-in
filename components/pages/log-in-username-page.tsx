@@ -1,12 +1,15 @@
 import { useTranslations } from "next-intl";
 import LogInUsername from "../organisms/log-in-username";
-import LogInTemplate from "../templates/log-in-template";
+import SingleContentTemplate from "../templates/single-content-template";
 
 export default function LogInUsernamePage() {
   const translate = useTranslations("LogIn");
 
   const innerContent = <LogInUsername />;
   return (
-    <LogInTemplate titleText={translate("Title")} innerContent={innerContent} />
+    <SingleContentTemplate
+      titleText={translate("Title")}
+      innerContent={innerContent}
+    />
   );
 }

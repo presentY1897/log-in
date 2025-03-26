@@ -1,13 +1,13 @@
-import LogInTemplate from "@/components/templates/log-in-template";
+import SingleContentTemplate from "@/components/templates/single-content-template";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "Templates/LogInTemplate",
-  component: LogInTemplate,
+  title: "Templates/SingleContentTemplate",
+  component: SingleContentTemplate,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof LogInTemplate>;
+} satisfies Meta<typeof SingleContentTemplate>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
