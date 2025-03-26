@@ -41,7 +41,7 @@ export default function SelectDate({
         onDegreeUpdate={onDegreeUpdate}
       />
       <div data-testid="clockDate">{format(selectedDate, "yyyy-MM-dd")}</div>
-      <div data-testid="nextButton" className="place-self-end">
+      <div className="place-self-end">
         <Button
           onClick={() => {
             confirmDate(selectedDate);
