@@ -21,7 +21,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className="bg-foreground text-background rounded-lg border-2 border-foreground p-2 hover:bg-background hover:text-foreground hover:border-foreground"
+      className="bg-foreground text-background rounded-lg border-2 border-foreground px-2 py-1 hover:bg-background hover:text-foreground hover:border-foreground"
       style={{ width: width, height: height }}
       onClick={onClick}
       onMouseDown={onMouseDown}
