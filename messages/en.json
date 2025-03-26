@@ -2,5 +2,15 @@
 	"Common": {
 		"Hello": "Hello",
 		"World": "World"
+	},
+	"LogIn": {
+		"Title": "Log In",
+		"Username": "Username",
+		"Password": "Password",
+		"Submit": "Submit",
+		"Next": "Next",
+		"ForgotUsername": "Forgot Username?",
+		"ForgotPassword": "Forgot Password?",
+		"CreateAccount": "Create Account"
 	}
 }

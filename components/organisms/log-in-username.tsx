@@ -1,13 +1,18 @@
+"use client";
+
 import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface LogInUsername {
   initialUsername?: string;
 }
 
 export default function LogInUsername({ initialUsername }: LogInUsername) {
+  const translate = useTranslations("LogIn");
+
   const [username, setUsername] = React.useState(initialUsername || "");
 
   const confirmUsername = () => {};
@@ -17,7 +22,7 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
       <div className="grow">
         <AnimatePlaceholderInput
           type="text"
-          placeholder="Enter username"
+          placeholder={translate("Username")}
           inputValue={username}
           inputValueChange={(e) => {
             setUsername(e);
@@ -25,12 +30,12 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         />
       </div>
       <div className="grow mb-5">
-        <Link href="/">Are you forgot email?</Link>
+        <Link href="/">{translate("ForgotUsername")}</Link>
       </div>
       <div className="grow grid grid-flow-col justify-between items-center">
-        <Link href="/">Create Account</Link>
+        <Link href="/">{translate("CreateAccount")}</Link>
         <Button
-          text="Confirm"
+          text={translate("Next")}
           onClick={() => {
             confirmUsername();
           }}

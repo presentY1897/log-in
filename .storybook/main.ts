@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
 		"@storybook/addon-themes",
     "@chromatic-com/storybook",
+		"storybook-next-intl",
   ],
   "framework": {
     "name": "@storybook/nextjs",
