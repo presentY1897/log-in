@@ -1,6 +1,8 @@
 import SelectDate from "@/components/organisms/select-date";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
+import { getDate } from "date-fns";
+import { getYear, getMonth } from "date-fns/fp";
 
 const meta = {
   title: "Organisms/SelectDate",
@@ -19,15 +21,23 @@ export const Default: Story = {
   },
 };
 
+let testDate = new Date(0);
 export const DarkTheme: Story = {
   ...Default,
   globals: {
     theme: "dark",
   },
+  args: {
+    startDate: new Date(1900, 0, 1),
+    confirmDate: (date: Date) => {
+      testDate = date;
+    },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const clock = canvas.getByTestId("clockHandler");
     const clockDate = canvas.getByTestId("clockDate");
+    const nextButton = canvas.getByRole("button");
 
     const rect = clock.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -39,6 +49,10 @@ export const DarkTheme: Story = {
       coords: { x: centerX + 5, y: centerY },
     });
     expect(clockDate).toHaveTextContent("1931-04-24");
+    await userEvent.click(nextButton);
+    expect(getYear(testDate)).toBe(1931);
+    expect(getMonth(testDate)).toBe(3);
+    expect(getDate(testDate)).toBe(24);
 
     await userEvent.pointer({
       keys: "[MouseLeft]",
@@ -46,6 +60,10 @@ export const DarkTheme: Story = {
       coords: { x: centerX - 5, y: centerY },
     });
     expect(clockDate).toHaveTextContent("1993-12-04");
+    await userEvent.click(nextButton);
+    expect(getYear(testDate)).toBe(1993);
+    expect(getMonth(testDate)).toBe(11);
+    expect(getDate(testDate)).toBe(4);
 
     await userEvent.pointer({
       keys: "[MouseLeft]",
@@ -56,6 +74,10 @@ export const DarkTheme: Story = {
       },
     });
     expect(clockDate).toHaveTextContent("1900-01-01");
+    await userEvent.click(nextButton);
+    expect(getYear(testDate)).toBe(1900);
+    expect(getMonth(testDate)).toBe(0);
+    expect(getDate(testDate)).toBe(1);
   },
 };
 
