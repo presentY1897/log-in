@@ -12,5 +12,14 @@
 		"ForgotUsername": "Forgot Username?",
 		"ForgotPassword": "Forgot Password?",
 		"CreateAccount": "Create Account"
+	},
+	"SignUp": {
+		"Title": "Sign Up",
+		"Username": "Username",
+		"Password": "Password",
+		"ConfirmPassword": "Confirm Password",
+		"Submit": "Submit",
+		"Next": "Next",
+		"Back": "Back"
 	}
 }
