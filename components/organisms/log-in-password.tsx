@@ -2,12 +2,15 @@ import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface LogInPasswordProps {
   username: string;
 }
 
 export default function LogInPassword({ username }: LogInPasswordProps) {
+  const translate = useTranslations("LogIn");
+
   const [password, setPassword] = React.useState("");
 
   const confirmPassword = () => {
@@ -19,7 +22,7 @@ export default function LogInPassword({ username }: LogInPasswordProps) {
         <div className="grow">
           <AnimatePlaceholderInput
             type="password"
-            placeholder="Password"
+            placeholder={translate("Password")}
             inputValue={password}
             inputValueChange={(value) => {
               setPassword(value);
@@ -32,7 +35,7 @@ export default function LogInPassword({ username }: LogInPasswordProps) {
       </div>
       <div className="grow place-self-end">
         <Button
-          text="Log In"
+          text={translate("Submit")}
           onClick={() => {
             confirmPassword();
           }}
