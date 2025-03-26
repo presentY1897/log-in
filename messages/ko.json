@@ -12,5 +12,14 @@
 		"ForgotUsername": "사용자 이름을 잊으셨나요?",
 		"ForgotPassword": "비밀번호를 잊으셨나요?",
 		"CreateAccount": "계정 만들기"
+	},
+	"SignUp": {
+		"Title": "가입",
+		"Username": "사용자 이름",
+		"Password": "비밀번호",
+		"ConfirmPassword": "비밀번호 확인",
+		"Submit": "제출",
+		"Next": "다음",
+		"Back": "뒤로"
 	}
 }
