@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react'
 import { withThemeByClassName } from '@storybook/addon-themes';
+import nextIntl from './next-intl';
 import '../app/globals.css'
 
 const preview: Preview = {
@@ -23,6 +24,14 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/i,
 			},
+		},
+		nextIntl,
+	},
+	initialGlobals: {
+		locale: 'en',
+		locales: {
+			en: 'English',
+			ko: '한국어',
 		},
 	},
 };
