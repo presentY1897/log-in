@@ -16,8 +16,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     char: "A",
-    movementSpeed: 10,
-    rotationSpeed: 10,
+    movementSpeed: 0,
+    rotationSpeed: 0,
     initialPosition: { x: 0, y: 0 },
     getNextPosition: () => ({
       x: Math.random() * 100,
