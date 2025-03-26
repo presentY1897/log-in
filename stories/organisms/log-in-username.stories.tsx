@@ -7,10 +7,16 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof LogInUsername>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
+  },
+};
