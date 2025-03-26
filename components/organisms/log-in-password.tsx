@@ -1,8 +1,8 @@
 import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import LinkWrapper from "../atoms/link-wrapper";
 
 interface LogInPasswordProps {
   username: string;
@@ -30,7 +30,7 @@ export default function LogInPassword({ username }: LogInPasswordProps) {
           />
         </div>
         <div className="grow mb-5">
-          <Link href="/">{translate("ForgotPassword")}</Link>
+          <LinkWrapper href="/">{translate("ForgotPassword")}</LinkWrapper>
         </div>
       </div>
       <div className="grow place-self-end">

@@ -3,8 +3,8 @@
 import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import LinkWrapper from "../atoms/link-wrapper";
 
 interface LogInUsername {
   initialUsername?: string;
@@ -30,10 +30,10 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         />
       </div>
       <div className="grow mb-5">
-        <Link href="/">{translate("ForgotUsername")}</Link>
+        <LinkWrapper href="/">{translate("ForgotUsername")}</LinkWrapper>
       </div>
       <div className="grow grid grid-flow-col justify-between items-center">
-        <Link href="/">{translate("CreateAccount")}</Link>
+        <LinkWrapper href="/">{translate("CreateAccount")}</LinkWrapper>
         <Button
           text={translate("Next")}
           onClick={() => {
