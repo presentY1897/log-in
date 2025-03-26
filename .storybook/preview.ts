@@ -26,6 +26,7 @@ const preview: Preview = {
 			},
 		},
 		nextIntl,
+		locale: 'en',
 	},
 	initialGlobals: {
 		locale: 'en',
