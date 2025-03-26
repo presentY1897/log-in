@@ -60,11 +60,11 @@ export default function ClockHandler({
     updateDegree(angle);
   };
 
-  const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseUp = () => {
     setIsMouseDown(false);
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseLeave = () => {
     setIsMouseDown(false);
   };
 

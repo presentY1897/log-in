@@ -36,6 +36,7 @@ export default function MovingWord({
           : getRandomPosition(width, height)),
       })
     );
+
   const [chars, setChars] = useState<
     { value: string; id: number; x: number; y: number }[]
   >(wordToChars(word));
