@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import ClockHandler from "../molecules/clock-handler";
 import { format } from "date-fns";
+import Button from "../atoms/button";
+import { useTranslations } from "next-intl";
 
 interface SelectDateProps {
   startDate?: Date;
+  confirmDate?: (currentDate: Date) => void;
 }
 
 export default function SelectDate({
   startDate = new Date(0),
+  confirmDate = () => {},
 }: SelectDateProps) {
+  const translate = useTranslations("SelectDate");
+
   const [degree, setDegree] = useState(0);
   const currentDate = new Date();
   const [selectedDate, setSelectedDate] = useState(startDate);
@@ -35,6 +41,14 @@ export default function SelectDate({
         onDegreeUpdate={onDegreeUpdate}
       />
       <div data-testid="clockDate">{format(selectedDate, "yyyy-MM-dd")}</div>
+      <div data-testid="nextButton" className="place-self-end">
+        <Button
+          onClick={() => {
+            confirmDate(selectedDate);
+          }}
+          text={translate("Next")}
+        />
+      </div>
     </div>
   );
 }

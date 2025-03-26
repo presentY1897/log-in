@@ -65,3 +65,10 @@ export const DateBefore1900: Story = {
     startDate: new Date(899, 11, 31),
   },
 };
+
+export const Korean: Story = {
+  ...Default,
+  globals: {
+    locale: "ko",
+  },
+};
