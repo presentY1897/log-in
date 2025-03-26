@@ -34,7 +34,7 @@ export default function SelectDate({
         initialDegree={0}
         onDegreeUpdate={onDegreeUpdate}
       />
-      <div>{format(selectedDate, "yyyy-MM-dd")}</div>
+      <div data-testid="clockDate">{format(selectedDate, "yyyy-MM-dd")}</div>
     </div>
   );
 }

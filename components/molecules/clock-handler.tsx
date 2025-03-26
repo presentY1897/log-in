@@ -70,6 +70,7 @@ export default function ClockHandler({
 
   return (
     <div
+      data-testid="clockHandler"
       ref={clockRef}
       className="cursor-pointer"
       onMouseDown={handleMouseDown}
