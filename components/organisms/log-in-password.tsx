@@ -9,7 +9,9 @@ interface LogInPasswordProps {
 export default function LogInPassword({ username }: LogInPasswordProps) {
   const [password, setPassword] = React.useState("");
 
-  const confirmPassword = () => {};
+  const confirmPassword = () => {
+    console.log("check with username and password", username);
+  };
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-2">
