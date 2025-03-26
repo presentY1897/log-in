@@ -21,5 +21,8 @@
 		"Submit": "Submit",
 		"Next": "Next",
 		"Back": "Back"
+	},
+	"SelectDate": {
+		"Next": "Next"
 	}
 }

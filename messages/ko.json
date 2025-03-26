@@ -21,5 +21,8 @@
 		"Submit": "제출",
 		"Next": "다음",
 		"Back": "뒤로"
+	},
+	"SelectDate": {
+		"Next": "다음"
 	}
 }

@@ -8,6 +8,7 @@
   --background: var(--white);
   --foreground: var(--black);
   --link-color: oklch(0.623 0.214 259.815);
+  --clock-surface-color: oklch(0.553 0.013 58.071);
 }
 
 .dark {
