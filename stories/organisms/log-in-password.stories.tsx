@@ -24,3 +24,10 @@ export const DarkTheme: Story = {
     theme: "dark",
   },
 };
+
+export const Korean: Story = {
+  ...Default,
+  parameters: {
+    locale: "ko",
+  },
+};
