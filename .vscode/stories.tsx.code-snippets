@@ -58,7 +58,7 @@
 			"",
 			"export const Korean: Story = {",
 			"  ...Default,",
-			"  globals: {",
+			"  parameters: {",
 			"    locale: 'ko',",
 			"  }",
 			"};",
