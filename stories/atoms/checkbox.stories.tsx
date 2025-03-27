@@ -18,6 +18,7 @@ const meta = {
       action: "changed",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
