@@ -12,7 +12,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: {
+    locale: "en",
+  },
+};
 
 export const DarkTheme: Story = {
   ...Default,

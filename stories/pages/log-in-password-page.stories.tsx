@@ -16,6 +16,9 @@ export const Default: Story = {
   args: {
     username: "Username",
   },
+  parameters: {
+    locale: "en",
+  },
 };
 
 export const DarkTheme: Story = {
