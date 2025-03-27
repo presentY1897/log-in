@@ -19,6 +19,9 @@ export const Default: Story = {
   args: {
     startDate: new Date(1900, 0, 1),
   },
+  parameters: {
+    locale: "en",
+  },
 };
 
 let testDate = new Date(0);

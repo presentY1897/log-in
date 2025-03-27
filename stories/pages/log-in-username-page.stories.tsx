@@ -19,6 +19,9 @@ export const DarkTheme: Story = {
   globals: {
     theme: "dark",
   },
+  parameters: {
+    locale: "en",
+  },
 };
 
 export const Korean: Story = {
