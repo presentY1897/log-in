@@ -47,7 +47,7 @@ export async function deleteSession() {
 	cookieStore.delete("session");
 }
 
-export async function signin(name: string, email: string, password: string) {
+export async function validateCredentials(name: string, email: string, password: string) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("user-info")

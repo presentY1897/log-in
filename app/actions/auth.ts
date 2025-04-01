@@ -1,5 +1,5 @@
 import { SignupFormSchema } from "@/app/lib/definitions";
-import { createSession, signin, insertUser, deleteSession } from "@/app/lib/session";
+import { createSession, validateCredentials, insertUser, deleteSession } from "@/app/lib/session";
 import { redirect } from "next/navigation";
 
 
@@ -19,7 +19,7 @@ export async function login(formData: FormData){
 
 	const {name, email, password} = validatedFields.data;
 
-	const { user, error } = await signin(name, email, password);
+	const { user, error } = await validateCredentials(name, email, password);
 
 	if (error) {
 		return {
