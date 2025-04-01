@@ -1,19 +1,16 @@
-export default function LabelInput({
-  label,
-  type,
-  placeholder,
-}: {
-  label: string;
-  type: string;
-  placeholder: string;
-}) {
+interface LabelInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  labelText: string;
+}
+
+export default function LabelInput(props: LabelInputProps) {
+  const { labelText, type = "text", ...attributes } = props;
   return (
     <div className="flex flex-col">
-      <label className="text-primary">{label}</label>
+      <label className="text-foreground">{labelText}</label>
       <input
-        className="bg-tertiary placeholder-secondary rounded-md"
+        {...attributes}
+        className="bg-background placeholder-secondary rounded-md"
         type={type}
-        placeholder={placeholder}
       />
     </div>
   );
