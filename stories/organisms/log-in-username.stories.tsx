@@ -7,6 +7,9 @@ const meta = {
   component: LogInUsername,
   parameters: {
     layout: "centered",
+    nextjs: {
+      appDirectory: true,
+    },
   },
 } satisfies Meta<typeof LogInUsername>;
 
