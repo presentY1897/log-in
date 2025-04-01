@@ -4,7 +4,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { SessionPayload } from "./definitions";
 import bcrypt from "bcryptjs";
-import { createClient } from "@/utils/supbase/client";
+import { createClient } from "@/utils/supbase/server";
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
@@ -43,7 +43,7 @@ export async function createSession(userId: string) {
 }
 
 export async function signin(name: string, email: string, password: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("user-info")
     .select("id, username, password")
@@ -67,6 +67,76 @@ export async function signin(name: string, email: string, password: string) {
   }
 
   const user = data.find((user) => bcrypt.compareSync(password, user.password));
+  if (!user) {
+    return {
+      error: {
+        message: "Username or email not found",
+      },
+    };
+  }
+
+  return {
+    user: {
+      id: user.id.toString(),
+      username: user.username,
+    },
+  };
+}
+
+export async function checkDuplicateEmail(email: string) {
+	const supabase = await createClient();
+	const { data, error } = await supabase
+		.from("user-info")
+		.select("id, username, email")
+		.eq("email", email);
+
+	if (error) {
+		return {
+			error: {
+				message: error.message,
+			},
+		};
+	}
+
+	if (data == null || data.length == 0) {
+		return {
+			state: false,
+		};
+	}
+
+	return {
+		state: true,
+	};
+}
+
+export async function insertUser(name: string, email: string, password: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("user-info")
+		.insert({
+			username: name,
+			email: email,
+			password: bcrypt.hashSync(password, 10),
+		})
+		.select("id, username, email");
+
+  if (error) {
+    return {
+      error: {
+        message: error.message,
+      },
+    };
+  }
+
+  if (data == null || data.length != 1) {
+    return {
+      error: {
+        message: "Username or email not found",
+      },
+    };
+  }
+
+  const user = data[0];
   if (!user) {
     return {
       error: {
