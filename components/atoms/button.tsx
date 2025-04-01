@@ -7,6 +7,7 @@ interface ButtonProps {
   onMouseUp?: React.MouseEventHandler<HTMLButtonElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
   onKeyUp?: React.KeyboardEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -18,6 +19,7 @@ export default function Button({
   onMouseUp,
   onKeyDown,
   onKeyUp,
+  disabled = false,
 }: ButtonProps) {
   return (
     <button
@@ -28,6 +30,7 @@ export default function Button({
       onMouseUp={onMouseUp}
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}
+      disabled={disabled}
     >
       {text}
     </button>

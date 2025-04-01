@@ -102,3 +102,24 @@ export const PressedCallback: Story = {
     await userEvent.click(document.body);
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    ...Default.args,
+    disabled: true,
+  },
+  render: function Render(args) {
+    const [count, setCount] = useState(0);
+    function onClick() {
+      setCount(count + 1);
+    }
+    return <Button {...args} text={`Click ${count} times`} onClick={onClick} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+    expect(button).toBeDisabled();
+    await userEvent.click(button);
+    expect(button).toHaveTextContent("Click 0 times");
+  },
+};
