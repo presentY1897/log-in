@@ -50,7 +50,9 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         <LinkWrapper href="/">{translate("ForgotUsername")}</LinkWrapper>
       </div>
       <div className="grow grid grid-flow-col justify-between items-center">
-        <LinkWrapper href="/">{translate("CreateAccount")}</LinkWrapper>
+        <LinkWrapper href="/sign-up/username">
+          {translate("CreateAccount")}
+        </LinkWrapper>
         <Button
           data-testid="username-submit-button"
           text={translate("Next")}
