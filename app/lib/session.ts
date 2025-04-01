@@ -3,6 +3,8 @@
 import { SignJWT, jwtVerify } from 'jose'
 import { cookies } from 'next/headers'
 import { SessionPayload } from './definitions'
+import bcrypt from 'bcryptjs'
+import { createClient } from '@/utils/supbase/client'
  
 const secretKey = process.env.SESSION_SECRET
 const encodedKey = new TextEncoder().encode(secretKey)
@@ -38,4 +40,41 @@ export async function createSession(userId: string) {
     sameSite: 'lax',
     path: '/',
   })
+}
+
+export async function signin(name: string, email: string, password: string) {
+	const supabase = createClient();
+	const { data, error } = await supabase.from('user-info').select('id, username, password').eq('email', email).eq('username', name);
+
+	if (error) {
+		return {
+			error: {
+				message: error.message,
+			}
+		}
+	}
+
+	if (data == null || data.length == 0){
+		return {
+			error: {
+				message: 'Username or email not found',
+			}
+		}
+	}
+
+	const user = data.find((user) => bcrypt.compareSync(password, user.password));
+	if (!user) {
+		return {
+			error: {
+				message: 'Username or email not found',
+			}
+		}
+	}
+
+	return {
+		user: {
+			id: user.id.toString(),
+			username: user.username,
+		},
+	}
 }

@@ -1,7 +1,5 @@
-import bcrypt from "bcryptjs";
-import { createClient } from "@/utils/supbase/client";
 import { SignupFormSchema } from "@/app/lib/definitions";
-import { createSession } from "@/app/lib/session";
+import { createSession, signin } from "@/app/lib/session";
 import { redirect } from "next/navigation";
 
 
@@ -20,10 +18,8 @@ export async function login(formData: FormData){
 	}
 
 	const {name, email, password} = validatedFields.data;
-  const hashedPassword = await bcrypt.hash(password, 10)
 
-	const supabase = createClient();
-	const { data, error } = await supabase.from('user-info').select('id, username').eq('username', name).is('email', email).eq('password', hashedPassword).limit(1);
+	const { user, error } = await signin(name, email, password);
 
 	if (error) {
 		return {
@@ -31,23 +27,13 @@ export async function login(formData: FormData){
 		}
 	}
 
-	if (data == null || data.length == 0){
-		return {
-			errors: {
-				name: ['Username or email not found'],
-			}
-		}
-	}
-
-	const user = data[0];
-
   if (!user) {
     return {
-      message: 'An error occurred while creating your account.',
+      message: 'An error occurred while sign in your account.',
     }
   }
 
 	await createSession(user.id.toString());
-	redirect('/');
 
+	redirect('/');
 }
