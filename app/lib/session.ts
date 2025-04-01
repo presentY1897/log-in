@@ -42,6 +42,11 @@ export async function createSession(userId: string) {
   });
 }
 
+export async function deleteSession() {
+	const cookieStore = await cookies();
+	cookieStore.delete("session");
+}
+
 export async function signin(name: string, email: string, password: string) {
   const supabase = await createClient();
   const { data, error } = await supabase
