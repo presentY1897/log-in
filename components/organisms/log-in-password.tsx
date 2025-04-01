@@ -5,18 +5,20 @@ import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
+import { login } from "@/app/actions/auth";
 
 export default function LogInPassword() {
   const translate = useTranslations("LogIn");
 
   const [password, setPassword] = React.useState("");
 
-  const confirmPassword = () => {
-    console.log(
-      "check with username and password",
-      localStorage.getItem("username"),
-      password
-    );
+  const confirmPassword = async () => {
+    const formData = new FormData();
+    formData.append("name", localStorage.getItem("username") || "");
+    formData.append("email", localStorage.getItem("email") || "");
+    formData.append("password", password);
+
+    const state = await login(formData);
   };
   return (
     <div className="flex flex-col">
