@@ -1,3 +1,4 @@
+import { EmailUtils } from "@/utils/utils";
 import { expect, test } from "@playwright/test";
 
 test("handle log in username", async ({ page }) => {
@@ -17,7 +18,7 @@ test("handle log in username", async ({ page }) => {
   const email = await page.evaluate(() => localStorage.getItem("email") || "");
 
   expect(username).toBe("testuser");
-  expect(email).toBe("testuser@gmail.com");
+  expect(email).toBe("testuser@" + EmailUtils.defaultEmail);
 });
 
 test("handle log in password page: username fail", async ({ page }) => {
