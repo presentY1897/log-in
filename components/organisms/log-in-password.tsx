@@ -25,7 +25,7 @@ export default function LogInPassword() {
           <AnimatePlaceholderInput
             type="password"
             placeholder={translate("Password")}
-            inputValue={password}
+            value={password}
             inputValueChange={(value) => {
               setPassword(value);
             }}

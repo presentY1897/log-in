@@ -12,7 +12,7 @@ export default function Home() {
         <AnimatePlaceholderInput
           type="email"
           placeholder="Username or email"
-          inputValue={username}
+          value={username}
           inputValueChange={usernameChanged}
         />
         <button className="bg-blue-500 text-white rounded-md p-2">

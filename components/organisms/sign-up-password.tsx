@@ -17,7 +17,7 @@ export default function SignUpPassword() {
         <AnimatePlaceholderInput
           type="password"
           placeholder={translate("Password")}
-          inputValue={password}
+          value={password}
           inputValueChange={(value) => setPassword(value)}
         />
       </div>

@@ -42,7 +42,7 @@ export default function CaptchaFindWord({
       <AnimatePlaceholderInput
         type="text"
         placeholder="Enter the correct word"
-        inputValue={userInput}
+        value={userInput}
         inputValueChange={(value) => setUserInput(value)}
       />
       <div className="grid justify-items-end">
