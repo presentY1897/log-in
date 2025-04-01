@@ -1,17 +1,12 @@
 import React from "react";
 
-export interface CheckboxProps {
-  checked: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+export interface CheckboxProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  type?: "checkbox";
 }
 
-export default function Checkbox({ checked = false, onChange }: CheckboxProps) {
+export default function Checkbox(props: CheckboxProps) {
   return (
-    <input
-      className="size-5 accent-foreground"
-      type="checkbox"
-      checked={checked}
-      onChange={onChange}
-    />
+    <input {...props} className="size-5 accent-foreground" type="checkbox" />
   );
 }
