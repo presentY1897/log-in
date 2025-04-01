@@ -3,7 +3,7 @@ import { createSession, validateCredentials, insertUser, deleteSession } from "@
 import { redirect } from "next/navigation";
 
 
-export async function login(formData: FormData){
+export async function logIn(formData: FormData){
 
 	const validatedFields = SignupFormSchema.safeParse({
 		name: formData.get('name'),
