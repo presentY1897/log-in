@@ -19,12 +19,24 @@ export default function LogInPassword() {
     formData.append("password", password);
 
     const state = await login(formData);
+    if (state?.errors) {
+      if (state.errors.password) {
+        alert(translate("PasswordError") + state.errors.password);
+      }
+      if (state.errors.email) {
+        alert(translate("EmailError") + state.errors.email);
+      }
+      if (state.errors.name) {
+        alert(translate("UsernameError") + state.errors.name);
+      }
+    }
   };
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-2">
         <div className="grow">
           <AnimatePlaceholderInput
+            data-testid="password-input"
             type="password"
             placeholder={translate("Password")}
             value={password}
@@ -39,6 +51,7 @@ export default function LogInPassword() {
       </div>
       <div className="grow place-self-end">
         <Button
+          data-testid="password-submit-button"
           text={translate("Submit")}
           onClick={() => {
             confirmPassword();
