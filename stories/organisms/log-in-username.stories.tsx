@@ -1,5 +1,6 @@
 import LogInUsername from "@/components/organisms/log-in-username";
 import { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 const meta = {
   title: "Organisms/LogInUsername",
@@ -29,5 +30,25 @@ export const Korean: Story = {
   ...Default,
   parameters: {
     locale: "ko",
+  },
+};
+
+export const EmailCheck: Story = {
+  ...Default,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId("username-input");
+    const button = canvas.getByTestId("username-submit-button");
+
+    await userEvent.type(input, "test");
+    await userEvent.click(button);
+    await expect(localStorage.getItem("username")).toBe("test");
+    await expect(localStorage.getItem("email")).toBe("test@gmail.com");
+
+    await userEvent.clear(input);
+    await userEvent.type(input, "test@test.com");
+    await userEvent.click(button);
+    await expect(localStorage.getItem("username")).toBe("test");
+    await expect(localStorage.getItem("email")).toBe("test@test.com");
   },
 };
