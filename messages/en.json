@@ -24,5 +24,11 @@
 	},
 	"SelectDate": {
 		"Next": "Next"
+	},
+	"UserInfo": {
+		"Title": "User Information",
+		"Username": "Username",
+		"Email": "Email",
+		"CreatedAt": "Created At"
 	}
 }
