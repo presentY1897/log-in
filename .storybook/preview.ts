@@ -26,6 +26,9 @@ const preview: Preview = {
 			},
 		},
 		nextIntl,
+		nextjs: {
+			appDirectory: true,
+		},
 	},
 	initialGlobals: {
 		locale: 'en',
