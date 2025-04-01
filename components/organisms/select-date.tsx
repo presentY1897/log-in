@@ -6,17 +6,18 @@ import { useTranslations } from "next-intl";
 
 interface SelectDateProps {
   startDate?: Date;
+  endDate?: Date;
   confirmDate?: (currentDate: Date) => void;
 }
 
 export default function SelectDate({
   startDate = new Date(0),
+  endDate = new Date(2025, 2, 26),
   confirmDate = () => {},
 }: SelectDateProps) {
   const translate = useTranslations("SelectDate");
 
   const [degree, setDegree] = useState(0);
-  const currentDate = new Date();
   const [selectedDate, setSelectedDate] = useState(startDate);
 
   const onDegreeUpdate = (degree: number) => {
@@ -24,7 +25,7 @@ export default function SelectDate({
   };
 
   useEffect(() => {
-    const totalMilliseconds = currentDate.getTime() - startDate.getTime();
+    const totalMilliseconds = endDate.getTime() - startDate.getTime();
     const selectedMilliseconds = totalMilliseconds * (degree / 360);
     const newDate = new Date(startDate.getTime() + selectedMilliseconds);
     setSelectedDate(newDate);
