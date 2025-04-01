@@ -40,7 +40,11 @@ const CheckboxRender = (args: CheckboxProps) => {
 export const Default: Story = {
   args: {
     checked: false,
-    onChange: () => (Default.args.checked = !Default.args.checked),
+    onChange: () => {
+      if (Default.args) {
+        Default.args.checked = !Default.args.checked;
+      }
+    },
   },
   render: function Render(args: CheckboxProps) {
     return CheckboxRender(args);
@@ -68,7 +72,11 @@ export const DarkTheme: Story = {
 export const Checked: Story = {
   args: {
     checked: true,
-    onChange: () => (Checked.args.checked = !Checked.args.checked),
+    onChange: () => {
+      if (Checked.args) {
+        Checked.args.checked = !Checked.args.checked;
+      }
+    },
   },
   render: function Render(args: CheckboxProps) {
     return CheckboxRender(args);

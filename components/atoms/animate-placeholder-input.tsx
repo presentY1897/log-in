@@ -1,25 +1,23 @@
 import React from "react";
 
-interface AnimatePlaceholderInputProps {
-  type: string;
+interface AnimatePlaceholderInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  type?: string;
   placeholder?: string;
-  inputValue: string;
   inputValueChange: (value: string) => void;
 }
 
-export default function AnimatePlaceholderInput({
-  type = "text",
-  placeholder,
-  inputValue,
-  inputValueChange,
-}: AnimatePlaceholderInputProps) {
+export default function AnimatePlaceholderInput(
+  props: AnimatePlaceholderInputProps
+) {
+  const { type = "text", placeholder, inputValueChange, ...attributes } = props;
   return (
     <div className="flex flex-col">
       <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
         <input
+          {...attributes}
           className="peer rounded-md text-foreground bg-background focus:outline-none"
           type={type}
-          value={inputValue}
           placeholder=""
           onChange={(e) => inputValueChange(e.target.value)}
         />

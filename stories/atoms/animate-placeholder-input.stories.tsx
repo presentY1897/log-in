@@ -19,24 +19,24 @@ export const Default: Story = {
   args: {
     type: "text",
     placeholder: "Placeholder",
-    inputValue: "",
+    value: "",
     inputValueChange: (value: string) => {
-      Default.args!.inputValue = value;
+      Default.args!.value = value;
     },
   },
   render: function Render(args) {
-    const [inputValue, setInputValue] = useState(args.inputValue);
+    const [value, setInputValue] = useState(args.value);
     function inputValueChange(value: string) {
       setInputValue(value);
     }
     useEffect(() => {
-      setInputValue(args.inputValue);
-    }, [args.inputValue]);
+      setInputValue(args.value);
+    }, [args.value]);
 
     return (
       <AnimatePlaceholderInput
         {...args}
-        inputValue={inputValue}
+        value={value}
         inputValueChange={inputValueChange}
       />
     );

@@ -23,7 +23,7 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         <AnimatePlaceholderInput
           type="text"
           placeholder={translate("Username")}
-          inputValue={username}
+          value={username}
           inputValueChange={(value) => {
             setUsername(value);
           }}

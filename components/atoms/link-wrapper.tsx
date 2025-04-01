@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-interface LinkWrapperProps {
+interface LinkWrapperProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: ReactNode;
 }
 
-export default function LinkWrapper({ href, children }: LinkWrapperProps) {
+export default function LinkWrapper(props: LinkWrapperProps) {
+  const { children, ...attributes } = props;
   return (
-    <Link className="text-sm text-link" href={href}>
+    <Link {...attributes} className="text-sm text-link">
       {children}
     </Link>
   );
