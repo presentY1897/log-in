@@ -64,3 +64,22 @@ test("handle log in password page: password fail", async ({ page }) => {
   await submitButton.click();
   await expect(page).toHaveURL("/en/user-info");
 });
+
+test("handle log out", async ({ page }) => {
+  await page.goto("/en/log-in/password");
+  await page.evaluate(() => localStorage.setItem("username", "test"));
+  await page.evaluate(() => localStorage.setItem("email", "test@test.com"));
+
+  const passwordInput = page.getByTestId("password-input");
+  await passwordInput.fill("testpassword1@");
+  const submitButton = page.getByTestId("password-submit-button");
+  await submitButton.click();
+
+  await expect(page).toHaveURL("/en/user-info");
+	await page.goto("/");
+  await expect(page).toHaveURL("/en/user-info");
+	
+  const logOutButton = page.getByTestId("logout-button");
+	await logOutButton.click();
+	await expect(page).toHaveURL("/en/log-in/username");
+});
