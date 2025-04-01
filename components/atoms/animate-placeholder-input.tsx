@@ -10,12 +10,12 @@ interface AnimatePlaceholderInputProps
 export default function AnimatePlaceholderInput(
   props: AnimatePlaceholderInputProps
 ) {
-  const { type = "text", placeholder, inputValueChange } = props;
+  const { type = "text", placeholder, inputValueChange, ...attributes } = props;
   return (
     <div className="flex flex-col">
       <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
         <input
-          {...props}
+          {...attributes}
           className="peer rounded-md text-foreground bg-background focus:outline-none"
           type={type}
           placeholder=""

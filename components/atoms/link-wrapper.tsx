@@ -8,9 +8,9 @@ interface LinkWrapperProps
 }
 
 export default function LinkWrapper(props: LinkWrapperProps) {
-  const { children } = props;
+  const { children, ...attributes } = props;
   return (
-    <Link {...props} className="text-sm text-link">
+    <Link {...attributes} className="text-sm text-link">
       {children}
     </Link>
   );

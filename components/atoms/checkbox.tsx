@@ -6,7 +6,8 @@ export interface CheckboxProps
 }
 
 export default function Checkbox(props: CheckboxProps) {
+  const { type = "checkbox", ...attributes } = props;
   return (
-    <input {...props} className="size-5 accent-foreground" type="checkbox" />
+    <input {...attributes} className="size-5 accent-foreground" type={type} />
   );
 }
