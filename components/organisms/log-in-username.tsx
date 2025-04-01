@@ -24,8 +24,8 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
           type="text"
           placeholder={translate("Username")}
           inputValue={username}
-          inputValueChange={(e) => {
-            setUsername(e);
+          inputValueChange={(value) => {
+            setUsername(value);
           }}
         />
       </div>
