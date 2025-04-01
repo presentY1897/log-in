@@ -1,11 +1,11 @@
-import { useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
+import { getUser } from "@/app/lib/dal";
 
-
-export default function Page() {
-	const t = useTranslations('Common')
-	return (
-		<div>
-			<h1>{t('Hello')}</h1>
-		</div>
-	);
+export default async function Page() {
+  const user = await getUser();
+  if (!user) {
+    redirect("/log-in/username");
+  } else {
+    redirect("/user-info");
+  }
 }
