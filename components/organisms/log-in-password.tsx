@@ -1,20 +1,22 @@
+"use client";
+
 import React from "react";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
 
-interface LogInPasswordProps {
-  username: string;
-}
-
-export default function LogInPassword({ username }: LogInPasswordProps) {
+export default function LogInPassword() {
   const translate = useTranslations("LogIn");
 
   const [password, setPassword] = React.useState("");
 
   const confirmPassword = () => {
-    console.log("check with username and password", username);
+    console.log(
+      "check with username and password",
+      localStorage.getItem("username"),
+      password
+    );
   };
   return (
     <div className="flex flex-col">
