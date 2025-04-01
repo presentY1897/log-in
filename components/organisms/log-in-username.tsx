@@ -6,6 +6,7 @@ import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
 import { useRouter } from "next/navigation";
+import { EmailUtils } from "@/utils/utils";
 
 interface LogInUsername {
   initialUsername?: string;
@@ -20,10 +21,8 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
     if (username.length === 0) {
       return false;
     }
-    const valdiateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const defaultEmail = "gmail.com";
-    if (!valdiateEmail.test(username)) {
-      const email = username + "@" + defaultEmail;
+    if (!EmailUtils.validate.test(username)) {
+      const email = username + "@" + EmailUtils.defaultEmail;
       localStorage.setItem("username", username);
       localStorage.setItem("email", email);
       setUsername(email);
@@ -51,7 +50,9 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         <LinkWrapper href="/">{translate("ForgotUsername")}</LinkWrapper>
       </div>
       <div className="grow grid grid-flow-col justify-between items-center">
-        <LinkWrapper href="/">{translate("CreateAccount")}</LinkWrapper>
+        <LinkWrapper href="/sign-up/username">
+          {translate("CreateAccount")}
+        </LinkWrapper>
         <Button
           data-testid="username-submit-button"
           text={translate("Next")}
