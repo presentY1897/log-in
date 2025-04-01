@@ -5,7 +5,7 @@ import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface LogInUsername {
   initialUsername?: string;
@@ -13,8 +13,8 @@ interface LogInUsername {
 
 export default function LogInUsername({ initialUsername }: LogInUsername) {
   const translate = useTranslations("LogIn");
-
   const [username, setUsername] = React.useState(initialUsername || "");
+  const router = useRouter();
 
   const confirmUsername = () => {
     if (username.length === 0) {
@@ -31,7 +31,7 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
       localStorage.setItem("username", username.split("@")[0]);
       localStorage.setItem("email", username);
     }
-    redirect("/log-in/password");
+    router.push("/log-in/password");
   };
 
   return (

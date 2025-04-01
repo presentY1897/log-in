@@ -1,15 +1,13 @@
 import LogInUsername from "@/components/organisms/log-in-username";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
+import { getRouter } from "@storybook/nextjs/navigation.mock";
 
 const meta = {
   title: "Organisms/LogInUsername",
   component: LogInUsername,
   parameters: {
     layout: "centered",
-    nextjs: {
-      appDirectory: true,
-    },
   },
 } satisfies Meta<typeof LogInUsername>;
 
@@ -45,12 +43,14 @@ export const EmailCheck: Story = {
 
     await userEvent.type(input, "test");
     await userEvent.click(button);
+    await expect(getRouter().push).toHaveBeenCalled();
     await expect(localStorage.getItem("username")).toBe("test");
     await expect(localStorage.getItem("email")).toBe("test@gmail.com");
 
     await userEvent.clear(input);
     await userEvent.type(input, "test@test.com");
     await userEvent.click(button);
+    await expect(getRouter().push).toHaveBeenCalled();
     await expect(localStorage.getItem("username")).toBe("test");
     await expect(localStorage.getItem("email")).toBe("test@test.com");
   },
