@@ -2,7 +2,7 @@ import React from "react";
 
 interface AnimatePlaceholderInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  type?: string;
+  type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   inputValueChange: (value: string) => void;
 }
