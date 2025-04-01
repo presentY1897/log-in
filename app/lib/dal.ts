@@ -2,7 +2,7 @@
 
 import { cache } from "react";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import { decrypt } from "@/app/lib/session";
 import { createClient } from "@/utils/supbase/server";
 
@@ -11,7 +11,7 @@ export const verifySession = cache(async () => {
   const session = await decrypt(cookie);
 
   if (!session?.userId) {
-    redirect("/log-in/username");
+    redirect("/log-in/username", RedirectType.replace);
   }
 
   return { isAuth: true, userId: session.userId };
