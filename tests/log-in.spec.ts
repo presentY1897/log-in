@@ -61,5 +61,5 @@ test("handle log in password page: password fail", async ({ page }) => {
   await passwordInput.clear();
   await passwordInput.fill("testpassword1@");
   await submitButton.click();
-  await expect(page).toHaveURL("/en");
+  await expect(page).toHaveURL("/en/user-info");
 });
