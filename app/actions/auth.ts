@@ -23,7 +23,7 @@ export async function login(formData: FormData){
   const hashedPassword = await bcrypt.hash(password, 10)
 
 	const supabase = createClient();
-	const { data, error } = await supabase.from('user-info').select('*').eq('username', name).is('email', email).eq('password', hashedPassword).limit(1);
+	const { data, error } = await supabase.from('user-info').select('id, username').eq('username', name).is('email', email).eq('password', hashedPassword).limit(1);
 
 	if (error) {
 		return {
