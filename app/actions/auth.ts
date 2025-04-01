@@ -1,5 +1,5 @@
 import { SignupFormSchema } from "@/app/lib/definitions";
-import { createSession, signin, insertUser } from "@/app/lib/session";
+import { createSession, signin, insertUser, deleteSession } from "@/app/lib/session";
 import { redirect } from "next/navigation";
 
 
@@ -72,4 +72,9 @@ export async function signUp(formData: FormData){
 
 	redirect('/');
 
+}
+
+export async function logOut() {
+	deleteSession();
+	redirect('/log-in/username');
 }
