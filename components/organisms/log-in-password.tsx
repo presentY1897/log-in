@@ -6,11 +6,15 @@ import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
 import { login } from "@/app/actions/auth";
+import { type FormState } from "@/app/lib/definitions";
+import { useRouter } from "next/navigation";
 
 export default function LogInPassword() {
+  const router = useRouter();
   const translate = useTranslations("LogIn");
 
   const [password, setPassword] = React.useState("");
+  const [state, setState] = React.useState<FormState>();
 
   const confirmPassword = async () => {
     const formData = new FormData();
@@ -20,16 +24,13 @@ export default function LogInPassword() {
 
     const state = await login(formData);
     if (state?.errors) {
-      if (state.errors.password) {
-        alert(translate("PasswordError") + state.errors.password);
-      }
-      if (state.errors.email) {
-        alert(translate("EmailError") + state.errors.email);
-      }
-      if (state.errors.name) {
-        alert(translate("UsernameError") + state.errors.name);
+      if (state.errors.email || state.errors.name) {
+        localStorage.setItem("username", "");
+        localStorage.setItem("email", "");
+        router.push("/log-in/username");
       }
     }
+    setState(state);
   };
   return (
     <div className="flex flex-col">
@@ -47,6 +48,17 @@ export default function LogInPassword() {
         </div>
         <div className="grow mb-5">
           <LinkWrapper href="/">{translate("ForgotPassword")}</LinkWrapper>
+          {state?.errors?.password && (
+            <div data-testid="password-error">
+              {state.errors.password.map((error) => {
+                return (
+                  <p key={error} className="text-red-500">
+                    {error}
+                  </p>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
       <div className="grow place-self-end">
