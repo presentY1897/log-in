@@ -32,6 +32,7 @@
 		"Title": "사용자 정보",
 		"Username": "사용자 이름",
 		"Email": "이메일",
-		"CreatedAt": "가입일"
+		"CreatedAt": "가입일",
+		"LogOut": "로그아웃"
 	}
 }

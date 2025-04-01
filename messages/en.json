@@ -29,6 +29,7 @@
 		"Title": "User Information",
 		"Username": "Username",
 		"Email": "Email",
-		"CreatedAt": "Created At"
+		"CreatedAt": "Created At",
+		"LogOut": "Log Out"
 	}
 }
