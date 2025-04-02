@@ -43,11 +43,15 @@ export async function createSession(userId: string) {
 }
 
 export async function deleteSession() {
-	const cookieStore = await cookies();
-	cookieStore.delete("session");
+  const cookieStore = await cookies();
+  cookieStore.delete("session");
 }
 
-export async function validateCredentials(name: string, email: string, password: string) {
+export async function validateCredentials(
+  name: string,
+  email: string,
+  password: string
+) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("user-info")
@@ -89,41 +93,45 @@ export async function validateCredentials(name: string, email: string, password:
 }
 
 export async function checkDuplicateEmail(email: string) {
-	const supabase = await createClient();
-	const { data, error } = await supabase
-		.from("user-info")
-		.select("id, username, email")
-		.eq("email", email);
-
-	if (error) {
-		return {
-			error: {
-				message: error.message,
-			},
-		};
-	}
-
-	if (data == null || data.length == 0) {
-		return {
-			state: false,
-		};
-	}
-
-	return {
-		state: true,
-	};
-}
-
-export async function insertUser(name: string, email: string, password: string) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("user-info")
-		.insert({
-			username: name,
-			email: email,
-			password: bcrypt.hashSync(password, 10),
-		})
-		.select("id, username, email");
+    .select("id, username, email")
+    .eq("email", email);
+
+  if (error) {
+    return {
+      error: {
+        message: error.message,
+      },
+    };
+  }
+
+  if (data == null || data.length == 0) {
+    return {
+      state: false,
+    };
+  }
+
+  return {
+    state: true,
+  };
+}
+
+export async function insertUser(
+  name: string,
+  email: string,
+  password: string
+) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("user-info")
+    .insert({
+      username: name,
+      email: email,
+      password: bcrypt.hashSync(password, 10),
+    })
+    .select("id, username, email");
 
   if (error) {
     return {

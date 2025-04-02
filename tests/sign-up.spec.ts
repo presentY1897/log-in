@@ -10,8 +10,8 @@ test("handle sign up username", async ({ page }) => {
   await submitButton.click();
   await expect(page).toHaveURL("/en/sign-up/username");
 
-	usernameInput.clear();
-	await usernameInput.fill("testuser@no-use.email");
+  usernameInput.clear();
+  await usernameInput.fill("testuser@no-use.email");
   await submitButton.click();
   await expect(page).toHaveURL("/en/sign-up/password");
 });
