@@ -1,4 +1,6 @@
-기본적인 프론트엔드 프로젝트 환경을 구성해보는 테스트 프로젝트입니다.
+기본적인 프론트엔드 프로젝트 환경을 구성하기 위한 테스트 프로젝트입니다.  
+Next.js 기반으로 UI 컴포넌트 설계, E2E 테스트, CI/CD 환경을 종합적으로 실험합니다.
+로그인, 로그아웃, 회원가입 기능을 구현하고 간단한 퍼즐 게임을 추가할 예정입니다.
 
 ## 구성
 
@@ -6,7 +8,7 @@
 
 - `Next.js`를 기반으로 `Typescript`와 `Tailwind CSS`를 이용하며 `App Router`를 사용합니다.
 - `Next-intl`으로 다국어 지원합니다.
-- `Next-themes`으로 기본/다크 모드를 지원합니다.
+- `Next-themes`으로 라이트(기본)/다크 모드를 지원합니다.
 
 ### Test
 
@@ -16,8 +18,8 @@
 ### Deploy
 
 - `Vercel`으로 최종 빌드를 배포합니다. 데이터베이스는 `Supabase`를 사용합니다.
-- `Chromatic`으로 `Storybook`을 배포하고 테스트합니다.
-- `Github Action`으로 `CI/CD`를 구현하여 `Vercel`과 `Chromatic` 배포 및 `Playwright` 테스트를 실행합니다.
+- `Chromatic`으로 `Storybook`을 호스팅하고 시각적인 리그레션을 확인합니다.
+- `Github Action`으로 CI/CD 자동화하여 `Vercel`과 `Chromatic` 배포 및 `Playwright` 테스트를 실행합니다.
 
 ## Atomic Design Pattern
 
@@ -47,15 +49,15 @@ Template에 실제 컨텐츠가 포함된 컴포넌트입니다.
 
 ### File and Folder
 
-dash-case
+`dash-case`
 
 ### Functions
 
-PascalCase
+`PascalCase`
 
 ### Variables
 
-camelCase
+`camelCase`
 
 ## Links
 
