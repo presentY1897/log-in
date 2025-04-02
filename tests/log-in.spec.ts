@@ -76,10 +76,10 @@ test("handle log out", async ({ page }) => {
   await submitButton.click();
 
   await expect(page).toHaveURL("/en/user-info");
-	await page.goto("/");
+  await page.goto("/");
   await expect(page).toHaveURL("/en/user-info");
-	
+
   const logOutButton = page.getByTestId("logout-button");
-	await logOutButton.click();
-	await expect(page).toHaveURL("/en/log-in/username");
+  await logOutButton.click();
+  await expect(page).toHaveURL("/en/log-in/username");
 });

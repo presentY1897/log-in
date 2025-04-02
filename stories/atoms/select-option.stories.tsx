@@ -18,3 +18,10 @@ export const Default: Story = {
     initialSelectedOption: "Option 1",
   },
 };
+
+export const DarkTheme: Story = {
+  ...Default,
+  globals: {
+    theme: "dark",
+  },
+};

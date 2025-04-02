@@ -1,8 +1,8 @@
 # Workflow name
-name: 'Chromatic Publish'
+name: "Chromatic Publish"
 
 # Event for the workflow
-on: 
+on:
   pull_request:
     branches:
       - main

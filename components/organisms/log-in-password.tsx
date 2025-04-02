@@ -5,7 +5,7 @@ import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
 import LinkWrapper from "../atoms/link-wrapper";
-import { login } from "@/app/actions/auth";
+import { logIn } from "@/app/actions/auth";
 import { type FormState } from "@/app/lib/definitions";
 import { useRouter } from "next/navigation";
 
@@ -22,7 +22,7 @@ export default function LogInPassword() {
     formData.append("email", localStorage.getItem("email") || "");
     formData.append("password", password);
 
-    const state = await login(formData);
+    const state = await logIn(formData);
     if (state?.errors) {
       if (state.errors.email || state.errors.name) {
         localStorage.setItem("username", "");
