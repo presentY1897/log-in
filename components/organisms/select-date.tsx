@@ -47,8 +47,9 @@ export default function SelectDate({
           onClick={() => {
             confirmDate(selectedDate);
           }}
-          children={translate("Next")}
-        />
+        >
+          {translate("Next")}
+        </Button>
       </div>
     </div>
   );

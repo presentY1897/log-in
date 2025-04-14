@@ -64,11 +64,12 @@ export default function LogInPassword() {
       <div className="grow place-self-end">
         <Button
           data-testid="password-submit-button"
-          children={translate("Submit")}
           onClick={() => {
             confirmPassword();
           }}
-        />
+        >
+          {translate("Submit")}
+        </Button>
       </div>
     </div>
   );

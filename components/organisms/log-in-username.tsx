@@ -55,11 +55,12 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
         </LinkWrapper>
         <Button
           data-testid="username-submit-button"
-          children={translate("Next")}
           onClick={() => {
             confirmUsername();
           }}
-        />
+        >
+          {translate("Next")}
+        </Button>
       </div>
     </div>
   );
