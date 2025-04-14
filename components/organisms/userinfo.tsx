@@ -46,11 +46,9 @@ export default function UserInfo(props: UserInfoProps) {
         value={created}
       ></LabelInput>
       <div className="place-self-end">
-        <Button
-          data-testid="logout-button"
-          text={translate("LogOut")}
-          onClick={() => logOutCallback()}
-        ></Button>
+        <Button data-testid="logout-button" onClick={() => logOutCallback()}>
+          {translate("LogOut")}
+        </Button>
       </div>
     </div>
   );

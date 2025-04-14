@@ -47,11 +47,9 @@ export default function SignUpUsername() {
       </div>
       <div className="min-h-10"></div>
       <div className="place-self-end">
-        <Button
-          data-testid="username-submit"
-          text={translate("Next")}
-          onClick={() => confirmUsername()}
-        />
+        <Button data-testid="username-submit" onClick={() => confirmUsername()}>
+          {translate("Next")}
+        </Button>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: "Click me",
+    children: "Click me",
     onClick: () => console.log("Clicked"),
   },
 };
@@ -37,7 +37,9 @@ export const ClickCallback: Story = {
     function onClick() {
       setCount(count + 1);
     }
-    return <Button {...args} text={`Click ${count} times`} onClick={onClick} />;
+    return (
+      <Button {...args} onClick={onClick}>{`Click ${count} times`}</Button>
+    );
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -73,12 +75,13 @@ export const PressedCallback: Story = {
     return (
       <Button
         {...args}
-        text={isPressed ? "Pressed" : "Not pressed"}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-      />
+      >
+        {isPressed ? "Pressed" : "Not pressed"}
+      </Button>
     );
   },
   play: async ({ canvasElement }) => {
@@ -113,7 +116,9 @@ export const Disabled: Story = {
     function onClick() {
       setCount(count + 1);
     }
-    return <Button {...args} text={`Click ${count} times`} onClick={onClick} />;
+    return (
+      <Button {...args} onClick={onClick}>{`Click ${count} times`}</Button>
+    );
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

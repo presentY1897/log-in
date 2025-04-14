@@ -46,7 +46,7 @@ export default function CaptchaFindWord({
         inputValueChange={(value) => setUserInput(value)}
       />
       <div className="grid justify-items-end">
-        <Button text="Submit" onClick={() => confirmButtonClicked()} />
+        <Button onClick={() => confirmButtonClicked()}>Submit</Button>
       </div>
     </div>
   );
