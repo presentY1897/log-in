@@ -40,7 +40,7 @@ export default function SignUpPassword() {
       <div className="min-h-10"></div>
       <div className="place-self-end">
         <Button
-          text={translate("Submit")}
+          children={translate("Submit")}
           onClick={() => confirmPasswordMatch()}
         />
       </div>

@@ -49,7 +49,7 @@ export default function SignUpUsername() {
       <div className="place-self-end">
         <Button
           data-testid="username-submit"
-          text={translate("Next")}
+          children={translate("Next")}
           onClick={() => confirmUsername()}
         />
       </div>

@@ -48,7 +48,7 @@ export default function UserInfo(props: UserInfoProps) {
       <div className="place-self-end">
         <Button
           data-testid="logout-button"
-          text={translate("LogOut")}
+          children={translate("LogOut")}
           onClick={() => logOutCallback()}
         ></Button>
       </div>
