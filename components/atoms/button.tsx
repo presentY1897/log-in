@@ -2,6 +2,7 @@ interface ButtonProps extends React.InputHTMLAttributes<HTMLButtonElement> {
   type?: "button" | "submit" | "reset";
   width?: string;
   height?: string;
+  // className?: string; how to appropriately extend the className prop?
 }
 
 export default function Button(props: ButtonProps) {
