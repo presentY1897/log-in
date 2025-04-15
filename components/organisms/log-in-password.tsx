@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
-import LinkWrapper from "../atoms/link-wrapper";
+import { useRouter } from "next/navigation";
 import { logIn } from "@/app/actions/auth";
 import { type FormState } from "@/app/lib/definitions";
-import { useRouter } from "next/navigation";
+import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
+import Button from "../atoms/button";
+import LinkWrapper from "../atoms/link-wrapper";
 
 export default function LogInPassword() {
   const router = useRouter();

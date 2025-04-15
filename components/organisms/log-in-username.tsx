@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
-import LinkWrapper from "../atoms/link-wrapper";
 import { useRouter } from "next/navigation";
 import { EmailUtils } from "@/utils/utils";
+import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
+import Button from "../atoms/button";
+import LinkWrapper from "../atoms/link-wrapper";
 
 interface LogInUsername {
   initialUsername?: string;

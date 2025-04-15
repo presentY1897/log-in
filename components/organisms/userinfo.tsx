@@ -1,10 +1,10 @@
 "use client";
 
 import { format } from "date-fns";
-import LabelInput from "../atoms/label-input";
 import { useTranslations } from "next-intl";
-import Button from "../atoms/button";
 import { logOut } from "@/app/actions/auth";
+import LabelInput from "../atoms/label-input";
+import Button from "../atoms/button";
 
 export interface UserInfoProps {
   username: string;
