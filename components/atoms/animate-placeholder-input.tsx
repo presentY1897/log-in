@@ -1,37 +1,45 @@
 import React from "react";
+import { cn } from "@/utils/tailwind";
 
 interface AnimatePlaceholderInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  /** The type of input field */
   type?: React.HTMLInputTypeAttribute;
+  /** The placeholder text that animates */
   placeholder?: string;
-  inputValueChange: (value: string) => void;
+  /** Optional className for the container */
+  className?: string;
 }
 
-export default function AnimatePlaceholderInput({
-  type = "text",
-  placeholder,
-  inputValueChange,
-  ...attributes
-}: AnimatePlaceholderInputProps) {
+export const AnimatePlaceholderInput = React.forwardRef<
+  HTMLInputElement,
+  AnimatePlaceholderInputProps
+>(({ className, type = "text", placeholder, ...props }, ref) => {
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
+    <div className={cn("flex flex-col", className)}>
+      <div className="relative flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
         <input
-          {...attributes}
-          className="peer rounded-md text-foreground bg-background focus:outline-none"
+          ref={ref}
+          {...props}
           type={type}
           placeholder=""
-          onChange={(e) => inputValueChange(e.target.value)}
+          aria-label={placeholder}
+          data-testid="animate-placeholder-input"
+          className="peer w-full rounded-md text-foreground bg-background focus:outline-none"
         />
-        <div
-          className="px-1 absolute justify-items-center align-middle text-center place-content-center pointer-events-none select-none bg-background text-foreground 
-					-translate-x-1 -translate-y-full
-					peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:-translate-y-0 
-					peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-full"
+        <label
+          className={cn(
+            "absolute px-1 text-center pointer-events-none select-none bg-background text-foreground",
+            "transform -translate-x-1 -translate-y-full",
+            "peer-placeholder-shown:translate-x-0 peer-placeholder-shown:translate-y-0",
+            "peer-focus:transition peer-focus:duration-200 peer-focus:-translate-x-1 peer-focus:-translate-y-full"
+          )}
         >
           {placeholder}
-        </div>
+        </label>
       </div>
     </div>
   );
-}
+});
+
+AnimatePlaceholderInput.displayName = "AnimatePlaceholderInput";
