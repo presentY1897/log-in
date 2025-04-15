@@ -32,6 +32,7 @@ export const Default: Story = {
     return (
       <AnimatePlaceholderInput
         {...args}
+        data-testid="animate-placeholder-input"
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setInputValue(e.target.value);

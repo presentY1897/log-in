@@ -24,7 +24,6 @@ export const AnimatePlaceholderInput = React.forwardRef<
           type={type}
           placeholder=""
           aria-label={placeholder}
-          data-testid="animate-placeholder-input"
           className="peer w-full rounded-md text-foreground bg-background focus:outline-none"
         />
         <label
