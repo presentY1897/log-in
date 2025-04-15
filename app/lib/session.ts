@@ -2,9 +2,9 @@
 
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { SessionPayload } from "./definitions";
 import bcrypt from "bcryptjs";
 import { createClient } from "@/utils/supbase/server";
+import { SessionPayload } from "./definitions";
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);

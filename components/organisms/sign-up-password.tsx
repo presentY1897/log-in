@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { signUp } from "@/app/actions/auth";
 import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
 import Button from "../atoms/button";
-import { useTranslations } from "next-intl";
-import { signUp } from "@/app/actions/auth";
-import { useRouter } from "next/navigation";
 
 export default function SignUpPassword() {
   const router = useRouter();

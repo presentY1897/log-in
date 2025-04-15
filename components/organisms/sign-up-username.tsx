@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { EmailUtils } from "@/utils/utils";
 import { checkDuplicateEmail } from "@/app/lib/session";
-import { useRouter } from "next/navigation";
+import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
+import Button from "../atoms/button";
 
 export default function SignUpUsername() {
   const translate = useTranslations("SignUp");

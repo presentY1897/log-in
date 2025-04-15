@@ -1,8 +1,7 @@
 import SelectDate from "@/components/organisms/select-date";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
-import { getDate } from "date-fns";
-import { getYear, getMonth } from "date-fns/fp";
+import { getYear, getMonth, getDate } from "date-fns";
 
 const meta = {
   title: "Organisms/SelectDate",

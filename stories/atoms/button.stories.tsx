@@ -1,8 +1,7 @@
 import Button from "@/components/atoms/button";
-import { Meta, StoryObj } from "@storybook/react";
-import { useState } from "@storybook/preview-api";
-import React from "react";
 import { expect, userEvent, within } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 
 const meta = {
   title: "Atoms/Button",
