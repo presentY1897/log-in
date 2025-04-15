@@ -1,4 +1,4 @@
-import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
+import { AnimatePlaceholderInput } from "@/components/atoms/animate-placeholder-input";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
 import { useEffect, useState } from "react";
@@ -19,25 +19,23 @@ export const Default: Story = {
   args: {
     type: "text",
     placeholder: "Placeholder",
-    value: "",
-    inputValueChange: (value: string) => {
-      Default.args!.value = value;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+      Default.args!.value = e.target.value;
     },
   },
-  render: function Render(args) {
-    const [value, setInputValue] = useState(args.value);
-    function inputValueChange(value: string) {
-      setInputValue(value);
-    }
+  render: function Render(args: Story["args"]) {
+    const [value, setInputValue] = useState(args?.value);
     useEffect(() => {
-      setInputValue(args.value);
-    }, [args.value]);
+      setInputValue(args?.value);
+    }, [args?.value]);
 
     return (
       <AnimatePlaceholderInput
         {...args}
         value={value}
-        inputValueChange={inputValueChange}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setInputValue(e.target.value);
+        }}
       />
     );
   },
@@ -48,6 +46,8 @@ export const Default: Story = {
     expect(input).toHaveValue("Hello");
     await userEvent.clear(input);
     expect(input).toHaveValue("");
+    await userEvent.tab();
+    expect(input).not.toHaveFocus();
   },
 };
 
@@ -62,9 +62,9 @@ export const TypedSomthing: Story = {
   args: {
     type: "text",
     placeholder: "Placeholder",
-    value: "123",
-    inputValueChange: (value: string) => {
-      TypedSomthing.args!.value = value;
+    value: "some text",
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+      TypedSomthing.args!.value = e.target.value;
     },
   },
 };
