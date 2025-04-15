@@ -57,3 +57,14 @@ export const DarkTheme: Story = {
     theme: "dark",
   },
 };
+
+export const TypedSomthing: Story = {
+  args: {
+    type: "text",
+    placeholder: "Placeholder",
+    value: "123",
+    inputValueChange: (value: string) => {
+      TypedSomthing.args!.value = value;
+    },
+  },
+};
