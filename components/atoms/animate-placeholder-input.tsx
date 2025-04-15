@@ -43,3 +43,5 @@ export const AnimatePlaceholderInput = React.forwardRef<
 });
 
 AnimatePlaceholderInput.displayName = "AnimatePlaceholderInput";
+
+export default AnimatePlaceholderInput;

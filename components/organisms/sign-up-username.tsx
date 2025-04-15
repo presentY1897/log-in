@@ -42,7 +42,9 @@ export default function SignUpUsername() {
           type="text"
           placeholder={translate("Username")}
           value={username}
-          inputValueChange={(value) => setUsername(value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setUsername(e.target.value);
+          }}
         />
       </div>
       <div className="min-h-10"></div>

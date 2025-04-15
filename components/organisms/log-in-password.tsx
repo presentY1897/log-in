@@ -41,8 +41,8 @@ export default function LogInPassword() {
             type="password"
             placeholder={translate("Password")}
             value={password}
-            inputValueChange={(value) => {
-              setPassword(value);
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPassword(e.target.value);
             }}
           />
         </div>

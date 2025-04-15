@@ -43,7 +43,9 @@ export default function CaptchaFindWord({
         type="text"
         placeholder="Enter the correct word"
         value={userInput}
-        inputValueChange={(value) => setUserInput(value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setUserInput(e.target.value)
+        }
       />
       <div className="grid justify-items-end">
         <Button onClick={() => confirmButtonClicked()}>Submit</Button>
