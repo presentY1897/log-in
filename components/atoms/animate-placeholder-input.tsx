@@ -7,10 +7,12 @@ interface AnimatePlaceholderInputProps
   inputValueChange: (value: string) => void;
 }
 
-export default function AnimatePlaceholderInput(
-  props: AnimatePlaceholderInputProps
-) {
-  const { type = "text", placeholder, inputValueChange, ...attributes } = props;
+export default function AnimatePlaceholderInput({
+  type = "text",
+  placeholder,
+  inputValueChange,
+  ...attributes
+}: AnimatePlaceholderInputProps) {
   return (
     <div className="flex flex-col">
       <div className="flex items-center bg-background rounded-md p-2 ring-2 ring-foreground focus-within:ring-foreground">
