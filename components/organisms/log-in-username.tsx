@@ -41,8 +41,8 @@ export default function LogInUsername({ initialUsername }: LogInUsername) {
           type="text"
           placeholder={translate("Username")}
           value={username}
-          inputValueChange={(value) => {
-            setUsername(value);
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setUsername(e.target.value);
           }}
         />
       </div>
