@@ -1,5 +1,5 @@
-import React from "react";
 import { cn } from "@/utils/tailwind";
+import React from "react";
 
 interface AnimatePlaceholderInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
