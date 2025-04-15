@@ -1,7 +1,7 @@
 import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
 import { Meta, StoryObj } from "@storybook/react";
-import { useEffect } from "react";
-import { useState } from "storybook/internal/preview-api";
+import { expect, userEvent, within } from "@storybook/test";
+import { useEffect, useState } from "react";
 
 const meta = {
   title: "Atoms/AnimatePlaceholderInput",
@@ -40,6 +40,14 @@ export const Default: Story = {
         inputValueChange={inputValueChange}
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId("animate-placeholder-input");
+    await userEvent.type(input, "Hello");
+    expect(input).toHaveValue("Hello");
+    await userEvent.clear(input);
+    expect(input).toHaveValue("");
   },
 };
 
