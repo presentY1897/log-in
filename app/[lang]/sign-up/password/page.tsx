@@ -1,4 +1,4 @@
-import SignUpPassword from "@/components/organisms/sign-up-password";
+import SignUpPassword from "@/components/organisms/sing-up/sign-up-password";
 import SingleContentTemplate from "@/components/templates/single-content-template";
 import { useTranslations } from "next-intl";
 

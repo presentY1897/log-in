@@ -1,4 +1,4 @@
-import SignUpPassword from "@/components/organisms/sign-up-password";
+import SignUpPassword from "@/components/organisms/sing-up/sign-up-password";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
