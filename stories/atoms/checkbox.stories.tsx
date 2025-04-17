@@ -1,4 +1,4 @@
-import Checkbox, { CheckboxProps } from "@/components/atoms/checkbox";
+import Checkbox from "@/components/atoms/checkbox";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
 import { useEffect } from "react";
@@ -24,7 +24,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const CheckboxRender = (args: CheckboxProps) => {
+const CheckboxRender = (args: React.InputHTMLAttributes<HTMLInputElement>) => {
   const [checked, setChecked] = useState(args.checked);
   function onChange() {
     setChecked(!checked);
@@ -46,7 +46,7 @@ export const Default: Story = {
       }
     },
   },
-  render: function Render(args: CheckboxProps) {
+  render: function Render(args: React.InputHTMLAttributes<HTMLInputElement>) {
     return CheckboxRender(args);
   },
   play: async ({ canvasElement }) => {
@@ -78,7 +78,7 @@ export const Checked: Story = {
       }
     },
   },
-  render: function Render(args: CheckboxProps) {
+  render: function Render(args: React.InputHTMLAttributes<HTMLInputElement>) {
     return CheckboxRender(args);
   },
   play: async ({ canvasElement }) => {
