@@ -1,4 +1,4 @@
-import LogInUsername from "@/components/organisms/log-in-username";
+import LogInUsername from "@/components/organisms/log-in/log-in-username";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
 import { getRouter } from "@storybook/nextjs/navigation.mock";

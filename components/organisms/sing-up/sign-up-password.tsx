@@ -4,8 +4,8 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { signUp } from "@/app/actions/auth";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
+import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
+import Button from "@/components/atoms/button";
 
 export default function SignUpPassword() {
   const router = useRouter();

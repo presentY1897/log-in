@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { EmailUtils } from "@/utils/utils";
 import { checkDuplicateEmail } from "@/app/lib/session";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
+import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
+import Button from "@/components/atoms/button";
 
 export default function SignUpUsername() {
   const translate = useTranslations("SignUp");

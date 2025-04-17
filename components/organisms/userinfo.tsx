@@ -3,8 +3,8 @@
 import { format } from "date-fns";
 import { useTranslations } from "next-intl";
 import { logOut } from "@/app/actions/auth";
-import LabelInput from "../atoms/label-input";
-import Button from "../atoms/button";
+import LabelInput from "@/components/atoms/label-input";
+import Button from "@/components/atoms/button";
 
 export interface UserInfoProps {
   username: string;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MovingCharacter from "../atoms/moving-character";
+import MovingCharacter from "@/components/atoms/moving-character";
 
 interface MovingWordProps {
   word: string;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useTranslations } from "next-intl";
-import ClockHandler from "../molecules/clock-handler";
-import Button from "../atoms/button";
+import ClockHandler from "@/components/molecules/clock-handler";
+import Button from "@/components/atoms/button";
 
 interface SelectDateProps {
   startDate?: Date;

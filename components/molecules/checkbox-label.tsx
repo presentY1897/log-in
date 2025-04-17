@@ -1,5 +1,5 @@
 import React from "react";
-import Checkbox from "../atoms/checkbox";
+import Checkbox from "@/components/atoms/checkbox";
 
 export interface CheckboxLabelProps {
   label: string;

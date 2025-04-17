@@ -1,4 +1,4 @@
-import LogInPassword from "@/components/organisms/log-in-password";
+import LogInPassword from "@/components/organisms/log-in/log-in-password";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

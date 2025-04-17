@@ -4,9 +4,9 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { EmailUtils } from "@/utils/utils";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import Button from "../atoms/button";
-import LinkWrapper from "../atoms/link-wrapper";
+import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
+import Button from "@/components/atoms/button";
+import LinkWrapper from "@/components/atoms/link-wrapper";
 
 interface LogInUsername {
   initialUsername?: string;

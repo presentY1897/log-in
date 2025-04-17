@@ -1,4 +1,4 @@
-import SignUpUsername from "@/components/organisms/sign-up-username";
+import SignUpUsername from "@/components/organisms/sing-up/sign-up-username";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
