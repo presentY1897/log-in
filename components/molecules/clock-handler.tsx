@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Clock from "../atoms/clock";
+import Clock from "@/components/atoms/clock";
 
 interface ClockHandlerProps {
   size: {

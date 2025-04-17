@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import UserInfo, { UserInfoProps } from "../organisms/userinfo";
-import SingleContentTemplate from "../templates/single-content-template";
+import UserInfo, { UserInfoProps } from "@/components/organisms/userinfo";
+import SingleContentTemplate from "@/components/templates/single-content-template";
 
 interface UserInfoPageProps {
   userInfo: UserInfoProps;

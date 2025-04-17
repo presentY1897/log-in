@@ -1,7 +1,7 @@
 import React from "react";
-import AnimatePlaceholderInput from "../atoms/animate-placeholder-input";
-import MovingWord from "../molecules/moving-word";
-import Button from "../atoms/button";
+import AnimatePlaceholderInput from "@/components/atoms/animate-placeholder-input";
+import MovingWord from "@/components/molecules/moving-word";
+import Button from "@/components/atoms/button";
 
 interface CaptchaFindWord {
   word: string;
