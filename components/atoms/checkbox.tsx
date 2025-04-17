@@ -1,13 +1,9 @@
 import React from "react";
 
-export interface CheckboxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  type?: "checkbox";
-}
-
-export default function Checkbox(props: CheckboxProps) {
-  const { type = "checkbox", ...attributes } = props;
+export default function Checkbox({
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <input {...attributes} className="size-5 accent-foreground" type={type} />
+    <input type="checkbox" {...props} className="size-5 accent-foreground" />
   );
 }
