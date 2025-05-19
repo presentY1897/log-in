@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 /**
  * Properties for the Clock component.
  *
@@ -19,11 +17,7 @@ interface ClockProps {
 
 export default function Clock({ size, degree }: ClockProps) {
   const calcPercentage = (degree: number) => (degree / 360) * 100;
-  const [percentage, setPercentage] = useState(calcPercentage(degree));
-
-  useEffect(() => {
-    setPercentage(calcPercentage(degree));
-  }, [degree]);
+  const percentage = calcPercentage(degree);
 
   return (
     <div
